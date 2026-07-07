@@ -88,6 +88,7 @@ class TimesheetSessionState:
         self.modal_mode: Optional[str] = None
         self.selected_entry: Optional[Dict[str, Any]] = None
         self.toast: Optional[Dict[str, str]] = None
+        self.active_tab: str = "timesheet"
 
     def get_autocompletes(self) -> Dict[str, List[Any]]:
         workers = []
@@ -279,53 +280,79 @@ class TimesheetSessionState:
 
         # 7. Layout Tree nodes
         children = []
-        children.append({
-            "id": "dashboard_stats_panel",
-            "surface": "DashboardStats",
-            "data": {"stats": stats}
-        })
-        children.append({
-            "id": "control_filter_bar",
-            "surface": "ControlBar",
+
+        # TabBar component definition (Prepend to all views)
+        tab_bar_node = {
+            "id": "timesheet_tab_bar",
+            "surface": "TabBar",
             "data": {
-                "searchQuery": self.search_query,
-                "selectedDate": self.selected_date,
-                "viewBy": self.view_by
+                "tabs": ["timesheet", "kiosk"],
+                "activeTab": self.active_tab
             }
-        })
-        
-        if show_table_loading:
+        }
+        children.append(tab_bar_node)
+
+        if self.active_tab == "timesheet":
             children.append({
-                "id": "main_entries_table_loading",
+                "id": "dashboard_stats_panel",
+                "surface": "DashboardStats",
+                "data": {"stats": stats}
+            })
+            children.append({
+                "id": "control_filter_bar",
+                "surface": "ControlBar",
+                "data": {
+                    "searchQuery": self.search_query,
+                    "selectedDate": self.selected_date,
+                    "viewBy": self.view_by
+                }
+            })
+            
+            if show_table_loading:
+                children.append({
+                    "id": "main_entries_table_loading",
+                    "surface": "Card",
+                    "data": {
+                        "title": "Agent Processing",
+                        "subtitle": "Crunching timesheet data...",
+                        "body": "Your Python Agent is fetching and grouping records according to your new filter query.",
+                        "iconName": "Clock",
+                        "statusText": "Processing...",
+                        "statusType": "warning"
+                    }
+                })
+            else:
+                table_surface = "FlatTable" if self.view_by == "none" else ("WorkerGroupTable" if self.view_by == "worker" else "CustomerGroupTable")
+                children.append({
+                    "id": "main_entries_table",
+                    "surface": table_surface,
+                    "data": {
+                        "data": paginated_data,
+                        "expandedGroups": self.expanded_groups
+                    }
+                })
+
+            if self.modal_mode and initial_form_state:
+                children.append({
+                    "id": "time_entry_form_modal",
+                    "surface": "TimeEntryFormModal",
+                    "data": {
+                        "modalMode": self.modal_mode,
+                        "initialFormState": initial_form_state,
+                        "autocompletes": self.get_autocompletes()
+                    }
+                })
+        else:
+            children.append({
+                "id": "kiosk_coming_soon",
                 "surface": "Card",
                 "data": {
-                    "title": "Agent Processing",
-                    "subtitle": "Crunching timesheet data...",
-                    "body": "Your Python Agent is fetching and grouping records according to your new filter query.",
-                    "iconName": "Clock",
-                    "statusText": "Processing...",
-                    "statusType": "warning"
-                }
-            })
-        else:
-            table_surface = "FlatTable" if self.view_by == "none" else ("WorkerGroupTable" if self.view_by == "worker" else "CustomerGroupTable")
-            children.append({
-                "id": "main_entries_table",
-                "surface": table_surface,
-                "data": {
-                    "data": paginated_data,
-                    "expandedGroups": self.expanded_groups
-                }
-            })
-
-        if self.modal_mode and initial_form_state:
-            children.append({
-                "id": "time_entry_form_modal",
-                "surface": "TimeEntryFormModal",
-                "data": {
-                    "modalMode": self.modal_mode,
-                    "initialFormState": initial_form_state,
-                    "autocompletes": self.get_autocompletes()
+                    "title": "Kiosk Interface",
+                    "subtitle": "Agent Generated Surface",
+                    "body": "The worker kiosk clock-in/out visual experience is currently under development. Powered by A2UI generative layouts.",
+                    "iconName": "Info",
+                    "statusText": "Coming Soon",
+                    "statusType": "info"
                 }
             })
 
@@ -657,6 +684,10 @@ async def timesheet_websocket(websocket: WebSocket):
                 session.modal_mode = None
                 session.selected_entry = None
                 await send_progressive_ui()
+                
+            elif action_type == "change_tab":
+                session.active_tab = payload.get("tab", "timesheet")
+                await websocket.send_text(json.dumps(session.compile_schema()))
 
     except WebSocketDisconnect:
         print("Timesheet client disconnected.")
