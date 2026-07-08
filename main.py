@@ -360,7 +360,7 @@ class TimesheetSessionState:
             "id": "timetrack_a2ui_root",
             "surface": "Stack",
             "data": {
-                "gap": "0px",
+                "gap": "24px",
                 "metadata": {
                     "totalItemsCount": total_items_count,
                     "totalPages": total_pages,
