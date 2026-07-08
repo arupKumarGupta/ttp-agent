@@ -334,7 +334,10 @@ class TimesheetSessionState:
                     "surface": table_surface,
                     "data": {
                         "data": paginated_data,
-                        "expandedGroups": self.expanded_groups
+                        "expandedGroups": self.expanded_groups,
+                        "currentPage": self.current_page,
+                        "totalPages": total_pages,
+                        "totalItemsCount": total_items_count
                     }
                 })
 

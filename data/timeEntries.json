@@ -418,5 +418,698 @@
       "location": "Austin",
       "id": "d-5"
     }
+  },
+  {
+    "id": "te-21",
+    "worker": {
+      "id": "w-5",
+      "name": "Ethan Hunt",
+      "email": "ethan.hunt@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-5",
+      "customer": "Veer Group"
+    },
+    "status": "SUBMITTED",
+    "duration": "09:00",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-08",
+    "department": {
+      "id": "d-5",
+      "location": "Austin"
+    }
+  },
+  {
+    "id": "te-22",
+    "worker": {
+      "id": "w-1",
+      "name": "Alice Smith",
+      "email": "alice.smith@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-1",
+      "customer": "Acme Corp"
+    },
+    "status": "SUBMITTED",
+    "duration": "07:30",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-08",
+    "department": {
+      "id": "d-1",
+      "location": "New York"
+    }
+  },
+  {
+    "id": "te-23",
+    "worker": {
+      "id": "w-4",
+      "name": "Diana Prince",
+      "email": "diana.prince@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-4",
+      "customer": "Hooli"
+    },
+    "status": "SUBMITTED",
+    "duration": "08:00",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-08",
+    "department": {
+      "id": "d-4",
+      "location": "Seattle"
+    }
+  },
+  {
+    "id": "te-24",
+    "worker": {
+      "id": "w-2",
+      "name": "Bob Jones",
+      "email": "bob.jones@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-6",
+      "customer": "Massive Dynamic"
+    },
+    "status": "OPEN",
+    "duration": "08:00",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-08",
+    "department": {
+      "id": "d-2",
+      "location": "San Francisco"
+    }
+  },
+  {
+    "id": "te-25",
+    "worker": {
+      "id": "w-7",
+      "name": "George Clark",
+      "email": "george.clark@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-1",
+      "customer": "Acme Corp"
+    },
+    "status": "APPROVED",
+    "duration": "08:15",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-09",
+    "department": {
+      "id": "d-1",
+      "location": "New York"
+    }
+  },
+  {
+    "id": "te-26",
+    "worker": {
+      "id": "w-7",
+      "name": "George Clark",
+      "email": "george.clark@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-4",
+      "customer": "Hooli"
+    },
+    "status": "OPEN",
+    "duration": "07:30",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-09",
+    "department": {
+      "id": "d-1",
+      "location": "New York"
+    }
+  },
+  {
+    "id": "te-27",
+    "worker": {
+      "id": "w-4",
+      "name": "Diana Prince",
+      "email": "diana.prince@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-5",
+      "customer": "Veer Group"
+    },
+    "status": "APPROVED",
+    "duration": "06:00",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-09",
+    "department": {
+      "id": "d-4",
+      "location": "Seattle"
+    }
+  },
+  {
+    "id": "te-28",
+    "worker": {
+      "id": "w-3",
+      "name": "Charlie Brown",
+      "email": "charlie.brown@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-3",
+      "customer": "Initech"
+    },
+    "status": "APPROVED",
+    "duration": "08:15",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-09",
+    "department": {
+      "id": "d-3",
+      "location": "Chicago"
+    }
+  },
+  {
+    "id": "te-29",
+    "worker": {
+      "id": "w-1",
+      "name": "Alice Smith",
+      "email": "alice.smith@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-4",
+      "customer": "Hooli"
+    },
+    "status": "OPEN",
+    "duration": "08:30",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-09",
+    "department": {
+      "id": "d-1",
+      "location": "New York"
+    }
+  },
+  {
+    "id": "te-30",
+    "worker": {
+      "id": "w-1",
+      "name": "Alice Smith",
+      "email": "alice.smith@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-1",
+      "customer": "Acme Corp"
+    },
+    "status": "SUBMITTED",
+    "duration": null,
+    "startTime": "08:00",
+    "endTime": "16:30",
+    "startDate": "2026-07-09",
+    "department": {
+      "id": "d-1",
+      "location": "New York"
+    }
+  },
+  {
+    "id": "te-31",
+    "worker": {
+      "id": "w-6",
+      "name": "Fiona Gallagher",
+      "email": "fiona.gallagher@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-2",
+      "customer": "Globex Corp"
+    },
+    "status": "OPEN",
+    "duration": "08:15",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-09",
+    "department": {
+      "id": "d-6",
+      "location": "Boston"
+    }
+  },
+  {
+    "id": "te-32",
+    "worker": {
+      "id": "w-2",
+      "name": "Bob Jones",
+      "email": "bob.jones@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-3",
+      "customer": "Initech"
+    },
+    "status": "OPEN",
+    "duration": "08:00",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-09",
+    "department": {
+      "id": "d-2",
+      "location": "San Francisco"
+    }
+  },
+  {
+    "id": "te-33",
+    "worker": {
+      "id": "w-3",
+      "name": "Charlie Brown",
+      "email": "charlie.brown@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-2",
+      "customer": "Globex Corp"
+    },
+    "status": "APPROVED",
+    "duration": null,
+    "startTime": "10:00",
+    "endTime": "18:00",
+    "startDate": "2026-07-10",
+    "department": {
+      "id": "d-3",
+      "location": "Chicago"
+    }
+  },
+  {
+    "id": "te-34",
+    "worker": {
+      "id": "w-6",
+      "name": "Fiona Gallagher",
+      "email": "fiona.gallagher@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-5",
+      "customer": "Veer Group"
+    },
+    "status": "APPROVED",
+    "duration": "08:15",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-10",
+    "department": {
+      "id": "d-6",
+      "location": "Boston"
+    }
+  },
+  {
+    "id": "te-35",
+    "worker": {
+      "id": "w-2",
+      "name": "Bob Jones",
+      "email": "bob.jones@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-2",
+      "customer": "Globex Corp"
+    },
+    "status": "APPROVED",
+    "duration": "07:30",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-10",
+    "department": {
+      "id": "d-2",
+      "location": "San Francisco"
+    }
+  },
+  {
+    "id": "te-36",
+    "worker": {
+      "id": "w-5",
+      "name": "Ethan Hunt",
+      "email": "ethan.hunt@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-6",
+      "customer": "Massive Dynamic"
+    },
+    "status": "SUBMITTED",
+    "duration": "08:30",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-10",
+    "department": {
+      "id": "d-5",
+      "location": "Austin"
+    }
+  },
+  {
+    "id": "te-37",
+    "worker": {
+      "id": "w-2",
+      "name": "Bob Jones",
+      "email": "bob.jones@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-6",
+      "customer": "Massive Dynamic"
+    },
+    "status": "OPEN",
+    "duration": "07:30",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-13",
+    "department": {
+      "id": "d-2",
+      "location": "San Francisco"
+    }
+  },
+  {
+    "id": "te-38",
+    "worker": {
+      "id": "w-3",
+      "name": "Charlie Brown",
+      "email": "charlie.brown@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-3",
+      "customer": "Initech"
+    },
+    "status": "APPROVED",
+    "duration": "08:15",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-13",
+    "department": {
+      "id": "d-3",
+      "location": "Chicago"
+    }
+  },
+  {
+    "id": "te-39",
+    "worker": {
+      "id": "w-3",
+      "name": "Charlie Brown",
+      "email": "charlie.brown@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-4",
+      "customer": "Hooli"
+    },
+    "status": "APPROVED",
+    "duration": null,
+    "startTime": "09:00",
+    "endTime": "17:00",
+    "startDate": "2026-07-13",
+    "department": {
+      "id": "d-3",
+      "location": "Chicago"
+    }
+  },
+  {
+    "id": "te-40",
+    "worker": {
+      "id": "w-7",
+      "name": "George Clark",
+      "email": "george.clark@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-3",
+      "customer": "Initech"
+    },
+    "status": "SUBMITTED",
+    "duration": "08:30",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-13",
+    "department": {
+      "id": "d-1",
+      "location": "New York"
+    }
+  },
+  {
+    "id": "te-41",
+    "worker": {
+      "id": "w-7",
+      "name": "George Clark",
+      "email": "george.clark@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-2",
+      "customer": "Globex Corp"
+    },
+    "status": "SUBMITTED",
+    "duration": "07:45",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-13",
+    "department": {
+      "id": "d-1",
+      "location": "New York"
+    }
+  },
+  {
+    "id": "te-42",
+    "worker": {
+      "id": "w-1",
+      "name": "Alice Smith",
+      "email": "alice.smith@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-2",
+      "customer": "Globex Corp"
+    },
+    "status": "APPROVED",
+    "duration": "08:00",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-13",
+    "department": {
+      "id": "d-1",
+      "location": "New York"
+    }
+  },
+  {
+    "id": "te-43",
+    "worker": {
+      "id": "w-3",
+      "name": "Charlie Brown",
+      "email": "charlie.brown@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-3",
+      "customer": "Initech"
+    },
+    "status": "APPROVED",
+    "duration": "08:30",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-14",
+    "department": {
+      "id": "d-3",
+      "location": "Chicago"
+    }
+  },
+  {
+    "id": "te-44",
+    "worker": {
+      "id": "w-6",
+      "name": "Fiona Gallagher",
+      "email": "fiona.gallagher@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-3",
+      "customer": "Initech"
+    },
+    "status": "OPEN",
+    "duration": "09:00",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-14",
+    "department": {
+      "id": "d-6",
+      "location": "Boston"
+    }
+  },
+  {
+    "id": "te-45",
+    "worker": {
+      "id": "w-1",
+      "name": "Alice Smith",
+      "email": "alice.smith@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-4",
+      "customer": "Hooli"
+    },
+    "status": "SUBMITTED",
+    "duration": "08:00",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-14",
+    "department": {
+      "id": "d-1",
+      "location": "New York"
+    }
+  },
+  {
+    "id": "te-46",
+    "worker": {
+      "id": "w-5",
+      "name": "Ethan Hunt",
+      "email": "ethan.hunt@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-5",
+      "customer": "Veer Group"
+    },
+    "status": "APPROVED",
+    "duration": "06:00",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-14",
+    "department": {
+      "id": "d-5",
+      "location": "Austin"
+    }
+  },
+  {
+    "id": "te-47",
+    "worker": {
+      "id": "w-7",
+      "name": "George Clark",
+      "email": "george.clark@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-4",
+      "customer": "Hooli"
+    },
+    "status": "SUBMITTED",
+    "duration": "08:00",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-14",
+    "department": {
+      "id": "d-1",
+      "location": "New York"
+    }
+  },
+  {
+    "id": "te-48",
+    "worker": {
+      "id": "w-4",
+      "name": "Diana Prince",
+      "email": "diana.prince@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-5",
+      "customer": "Veer Group"
+    },
+    "status": "SUBMITTED",
+    "duration": "07:45",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-14",
+    "department": {
+      "id": "d-4",
+      "location": "Seattle"
+    }
+  },
+  {
+    "id": "te-49",
+    "worker": {
+      "id": "w-4",
+      "name": "Diana Prince",
+      "email": "diana.prince@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-4",
+      "customer": "Hooli"
+    },
+    "status": "SUBMITTED",
+    "duration": "07:30",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-15",
+    "department": {
+      "id": "d-4",
+      "location": "Seattle"
+    }
+  },
+  {
+    "id": "te-50",
+    "worker": {
+      "id": "w-6",
+      "name": "Fiona Gallagher",
+      "email": "fiona.gallagher@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-2",
+      "customer": "Globex Corp"
+    },
+    "status": "SUBMITTED",
+    "duration": "06:00",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-15",
+    "department": {
+      "id": "d-6",
+      "location": "Boston"
+    }
+  },
+  {
+    "id": "te-51",
+    "worker": {
+      "id": "w-6",
+      "name": "Fiona Gallagher",
+      "email": "fiona.gallagher@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-4",
+      "customer": "Hooli"
+    },
+    "status": "OPEN",
+    "duration": "07:30",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-15",
+    "department": {
+      "id": "d-6",
+      "location": "Boston"
+    }
+  },
+  {
+    "id": "te-52",
+    "worker": {
+      "id": "w-7",
+      "name": "George Clark",
+      "email": "george.clark@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-2",
+      "customer": "Globex Corp"
+    },
+    "status": "APPROVED",
+    "duration": "06:00",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-15",
+    "department": {
+      "id": "d-1",
+      "location": "New York"
+    }
+  },
+  {
+    "id": "te-53",
+    "worker": {
+      "id": "w-3",
+      "name": "Charlie Brown",
+      "email": "charlie.brown@example.com"
+    },
+    "timeAgainst": {
+      "id": "c-5",
+      "customer": "Veer Group"
+    },
+    "status": "SUBMITTED",
+    "duration": "08:15",
+    "startTime": null,
+    "endTime": null,
+    "startDate": "2026-07-15",
+    "department": {
+      "id": "d-3",
+      "location": "Chicago"
+    }
   }
 ]
