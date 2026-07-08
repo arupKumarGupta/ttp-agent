@@ -28,7 +28,9 @@ def get_entry_minutes(entry: Dict[str, Any]) -> int:
 class TimesheetSessionState:
     def __init__(self):
         self.time_entries: List[Dict[str, Any]] = get_initial_time_entries()
-        self.selected_date: str = ""
+        self.date_preset: str = "all"
+        self.start_date: str = ""
+        self.end_date: str = ""
         self.search_query: str = ""
         self.view_by: str = "none"
         self.current_page: int = 1
@@ -74,8 +76,10 @@ class TimesheetSessionState:
         # 1. Filter entries
         filtered = []
         for entry in self.time_entries:
-            if self.selected_date and entry.get("startDate") != self.selected_date:
-                continue
+            entry_date = entry.get("startDate")
+            if self.start_date and self.end_date:
+                if not (self.start_date <= entry_date <= self.end_date):
+                    continue
             if self.search_query:
                 q = self.search_query.lower()
                 worker_name = entry.get("worker", {}).get("name", "").lower()
@@ -251,7 +255,9 @@ class TimesheetSessionState:
                 "surface": "ControlBar",
                 "data": {
                     "searchQuery": self.search_query,
-                    "selectedDate": self.selected_date,
+                    "datePreset": self.date_preset,
+                    "startDate": self.start_date,
+                    "endDate": self.end_date,
                     "viewBy": self.view_by
                 }
             })
@@ -276,7 +282,10 @@ class TimesheetSessionState:
                     "surface": table_surface,
                     "data": {
                         "data": paginated_data,
-                        "expandedGroups": self.expanded_groups
+                        "expandedGroups": self.expanded_groups,
+                        "currentPage": self.current_page,
+                        "totalPages": total_pages,
+                        "totalItemsCount": total_items_count
                     }
                 })
 

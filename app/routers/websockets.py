@@ -40,8 +40,27 @@ async def timesheet_websocket(websocket: WebSocket):
                 session.current_page = 1
                 await send_progressive_ui()
                 
-            elif action_type == "change_date":
-                session.selected_date = payload.get("date", "")
+            elif action_type == "change_date_range":
+                preset = payload.get("preset", "all")
+                session.date_preset = preset
+                
+                if preset == "all":
+                    session.start_date = ""
+                    session.end_date = ""
+                elif preset == "last_week":
+                    # July 8, 2026 is our reference today date
+                    session.start_date = "2026-07-01"
+                    session.end_date = "2026-07-08"
+                elif preset == "this_month":
+                    session.start_date = "2026-07-01"
+                    session.end_date = "2026-07-31"
+                elif preset == "last_month":
+                    session.start_date = "2026-06-01"
+                    session.end_date = "2026-06-30"
+                elif preset == "custom":
+                    session.start_date = payload.get("startDate", "")
+                    session.end_date = payload.get("endDate", "")
+                    
                 session.current_page = 1
                 await send_progressive_ui()
                 
