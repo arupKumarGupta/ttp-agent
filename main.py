@@ -80,7 +80,9 @@ def get_entry_minutes(entry: Dict[str, Any]) -> int:
 class TimesheetSessionState:
     def __init__(self):
         self.time_entries: List[Dict[str, Any]] = list(TIME_ENTRIES_DB)
-        self.selected_date: str = ""
+        self.date_preset: str = "all"
+        self.start_date: str = ""
+        self.end_date: str = ""
         self.search_query: str = ""
         self.view_by: str = "none"
         self.current_page: int = 1
@@ -126,8 +128,10 @@ class TimesheetSessionState:
         # 1. Filter entries
         filtered = []
         for entry in self.time_entries:
-            if self.selected_date and entry.get("startDate") != self.selected_date:
-                continue
+            entry_date = entry.get("startDate")
+            if self.start_date and self.end_date:
+                if not (self.start_date <= entry_date <= self.end_date):
+                    continue
             if self.search_query:
                 q = self.search_query.lower()
                 worker_name = entry.get("worker", {}).get("name", "").lower()
@@ -303,7 +307,9 @@ class TimesheetSessionState:
                 "surface": "ControlBar",
                 "data": {
                     "searchQuery": self.search_query,
-                    "selectedDate": self.selected_date,
+                    "datePreset": self.date_preset,
+                    "startDate": self.start_date,
+                    "endDate": self.end_date,
                     "viewBy": self.view_by
                 }
             })
@@ -577,8 +583,27 @@ async def timesheet_websocket(websocket: WebSocket):
                 session.current_page = 1
                 await send_progressive_ui()
                 
-            elif action_type == "change_date":
-                session.selected_date = payload.get("date", "")
+            elif action_type == "change_date_range":
+                preset = payload.get("preset", "all")
+                session.date_preset = preset
+                
+                if preset == "all":
+                    session.start_date = ""
+                    session.end_date = ""
+                elif preset == "last_week":
+                    # July 8, 2026 is our reference today date
+                    session.start_date = "2026-07-01"
+                    session.end_date = "2026-07-08"
+                elif preset == "this_month":
+                    session.start_date = "2026-07-01"
+                    session.end_date = "2026-07-31"
+                elif preset == "last_month":
+                    session.start_date = "2026-06-01"
+                    session.end_date = "2026-06-30"
+                elif preset == "custom":
+                    session.start_date = payload.get("startDate", "")
+                    session.end_date = payload.get("endDate", "")
+                    
                 session.current_page = 1
                 await send_progressive_ui()
                 
